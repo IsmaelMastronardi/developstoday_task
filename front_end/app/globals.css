@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.countryList {
+  @apply grid grid-cols-3
+}
+
+.countryListVariant {
+  @apply grid grid-cols-none w-7/12
+}
+
+.countryLink {
+  @apply w-full
+}
+
+.countryLink > a{
+  @apply border py-4 text-center hover:bg-gray-100 active:bg-gray-200 w-full block;
+}
+
+
+.countryDiv {
+  @apply flex flex-col justify-center items-center gap-2
+}
+.countryDiv > h1,
+.homeTitle {
+  @apply text-6xl text-center py-8
+}
+
+.subtitle {
+  @apply text-center pb-6 text-lg;
+}
+
+.flag {
+  @apply w-7/12
+}
+
+.population-chart-container {
+  @apply p-4 bg-gray-100 rounded-lg shadow-md w-10/12;
+}
+
+.error,
+.loading {
+  @apply text-2xl text-center
+}
+
+.error {
+  @apply text-red-500 pt-20
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
