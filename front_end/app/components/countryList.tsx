@@ -30,9 +30,9 @@ const CountryList = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <ul>
+    <ul className='countryList'>
       {countries.map((country) => (
-        <li key={country.countryCode}>
+        <li key={country.countryCode} className='countryLink'>
           <Link href={`/country/${country.countryCode}`}>
             {country.name}
           </Link>

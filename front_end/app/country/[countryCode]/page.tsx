@@ -5,7 +5,15 @@ import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import PopulationChart from '@/app/components/PopulationChart';
 import axios from 'axios';
+import Link from 'next/link';
 
+interface borderCountry {
+  commonName: string;
+  officialName: string;
+  countryCode: string;
+  region: string;
+  borders: null | string[];
+}
 
 const CountryPage = () => {
   const { countryCode } = useParams();
@@ -20,6 +28,7 @@ const CountryPage = () => {
         try {
           const response = await axios.get(`http://localhost:3000/countries/${countryCode}`);
           setCountryData(response.data);
+          console.log(response.data.borderCountries.length)
         } catch (err) {
           console.error(err);
           setError('Failed to fetch country data');
@@ -36,17 +45,32 @@ const CountryPage = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <div>
+    <div className='countryDiv'>
       <h1>{countryData.officialName}</h1>
-      <h2>{countryData.commonName}</h2>
       {countryData.flagUrl && (
         <Image 
           src={countryData.flagUrl} 
-          alt={`Flag of ${countryData.commonName}`} 
-          width={200}
+          alt={`Flag of ${countryData.commonName}`}
+          width={100}
           height={100}
-          style={{ maxWidth: '100%', height: 'auto' }}
+          className='flag'
         />
+      )}
+      {countryData.borderCountries &&(
+        <>
+          <p>
+            {countryData.commonName} borders {countryData.borderCountries.length} {countryData.borderCountries.length === 1 ? 'country' : 'countries'}
+          </p>
+          <ul className='countryList mb-10'>
+            {countryData.borderCountries.map((borderCountry: borderCountry) => (
+              <li key={borderCountry.countryCode}  className='countryLink'>
+                <Link href={`/country/${borderCountry.countryCode}`}>
+                  {borderCountry.commonName}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </>
       )}
       {countryData.population ? (
         <PopulationChart population={countryData.population} />
