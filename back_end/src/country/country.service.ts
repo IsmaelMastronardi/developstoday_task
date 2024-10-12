@@ -11,6 +11,7 @@ export class CountryService {
       const response = await axios.get(`${this.nagerApi}/AvailableCountries`);
       return response.data;
     } catch (error) {
+      console.error(error);
       throw new HttpException(
         'Failed to fetch coutries',
         HttpStatus.BAD_REQUEST,
@@ -53,6 +54,7 @@ export class CountryService {
         flagUrl,
       };
     } catch (error) {
+      console.error(error);
       throw new HttpException(
         'Failed to fetch country info',
         HttpStatus.BAD_REQUEST,
