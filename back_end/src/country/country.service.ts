@@ -3,8 +3,8 @@ import axios from 'axios';
 
 @Injectable()
 export class CountryService {
-  nagerApi = 'https://date.nager.at/api/v3';
-  nowApi = 'https://countriesnow.space/api/v0.1/countries';
+  nagerApi = process.env.NAGER_API;
+  nowApi = process.env.NOW_API;
 
   async getCountries() {
     try {
