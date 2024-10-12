@@ -11,7 +11,6 @@
 - [💻 Getting Started](#getting-started)
   - [Install](#install)
   - [Usage](#usage)
-  - [Linters](#linters)
 - [👥 Author](#author)
 
 <!-- PROJECT DESCRIPTION -->
