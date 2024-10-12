@@ -14,7 +14,7 @@ const CountryList = () => {
   useEffect(() => {
     const fetchCountries = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/countries/all');
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/countries/all`);
         setCountries(response.data);
       } catch (err) {
         console.log(err);

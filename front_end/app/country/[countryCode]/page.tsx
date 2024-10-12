@@ -26,7 +26,7 @@ const CountryPage = () => {
     if (countryCode) {
       const fetchCountryData = async () => {
         try {
-          const response = await axios.get(`http://localhost:3000/countries/${countryCode}`);
+          const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/countries/${countryCode}`);
           setCountryData(response.data);
           console.log(response.data.borderCountries.length)
         } catch (err) {
