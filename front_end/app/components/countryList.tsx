@@ -1,13 +1,16 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import axios from 'axios';
 
+interface country {
+  countryCode: string;
+  name: string;
+}
+
 const CountryList = () => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [countries, setCountries] = useState<any[]>([]);
+  const [countries, setCountries] = useState<country[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
