@@ -63,7 +63,7 @@ body {
 }
 
 .error {
-  @apply text-red-500
+  @apply text-red-500 pt-20
 }
 
 @layer utilities {
