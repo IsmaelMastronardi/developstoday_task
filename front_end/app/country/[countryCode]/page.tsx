@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import PopulationChart from '@/app/components/PopulationChart';
+import axios from 'axios';
+
 
 const CountryPage = () => {
   const { countryCode } = useParams();
@@ -47,7 +48,11 @@ const CountryPage = () => {
           style={{ maxWidth: '100%', height: 'auto' }}
         />
       )}
-      <PopulationChart />
+      {countryData.population ? (
+        <PopulationChart population={countryData.population} />
+      ) : (
+        <p>No population data available.</p>
+      )}
     </div>
   );
 };

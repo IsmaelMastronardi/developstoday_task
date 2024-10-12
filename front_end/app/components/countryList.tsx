@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+
 import Link from 'next/link';
+import axios from 'axios';
 
 const CountryList = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
