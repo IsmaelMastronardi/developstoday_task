@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 
 import { useEffect, useState } from 'react';
@@ -25,20 +26,22 @@ const CountryList = () => {
 
     fetchCountries();
   }, []);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+  if (loading) return <p className='loading'>Loading...</p>;
+  if (error) return <p className='error'>{error}</p>;
 
   return (
-    <ul className='countryList'>
-      {countries.map((country) => (
-        <li key={country.countryCode} className='countryLink'>
-          <Link href={`/country/${country.countryCode}`}>
-            {country.name}
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <>
+      <p className='subtitle'>Select any Country to see more information</p>
+      <ul className='countryList'>
+        {countries.map((country) => (
+          <li key={country.countryCode} className='countryLink'>
+            <Link href={`/country/${country.countryCode}`}>
+              {country.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </>
   );
 };
 

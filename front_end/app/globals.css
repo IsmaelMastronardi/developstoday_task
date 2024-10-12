@@ -24,6 +24,10 @@ body {
   @apply grid grid-cols-3
 }
 
+.countryListVariant {
+  @apply grid grid-cols-none w-7/12
+}
+
 .countryLink {
   @apply w-full
 }
@@ -51,6 +55,15 @@ body {
 
 .population-chart-container {
   @apply p-4 bg-gray-100 rounded-lg shadow-md w-10/12;
+}
+
+.error,
+.loading {
+  @apply text-2xl text-center
+}
+
+.error {
+  @apply text-red-500
 }
 
 @layer utilities {

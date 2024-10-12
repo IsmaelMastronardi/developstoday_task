@@ -41,8 +41,8 @@ const CountryPage = () => {
     }
   }, [countryCode]);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+  if (loading) return <p className='loading'>Loading...</p>;
+  if (error) return <p className='error'>{error}</p>;
 
   return (
     <div className='countryDiv'>
@@ -58,10 +58,10 @@ const CountryPage = () => {
       )}
       {countryData.borderCountries &&(
         <>
-          <p>
+          <p className='subtitle mt-6'>
             {countryData.commonName} borders {countryData.borderCountries.length} {countryData.borderCountries.length === 1 ? 'country' : 'countries'}
           </p>
-          <ul className='countryList mb-10'>
+          <ul className='countryListVariant mb-10'>
             {countryData.borderCountries.map((borderCountry: borderCountry) => (
               <li key={borderCountry.countryCode}  className='countryLink'>
                 <Link href={`/country/${borderCountry.countryCode}`}>
