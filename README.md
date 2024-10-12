@@ -87,6 +87,7 @@ The app consists of 2 folders, back_end and front_end
 - Run the front_end app:
 
   ```bash
+    npm run build
     npm start
   ```
 ***backend***
